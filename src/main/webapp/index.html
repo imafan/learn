@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <#include "/ftl/common/head.ftl"/>
+    <title>试炼之地</title>
+    <style>
+        body{background-color: #FFF}
+        @media (max-width: 1000px) {
+            body{background-color: #f00}
+        }
+    </style>
+</head>
+<body onload="prettyPrint()">
+<h1>你瞅啥！！</h1>
+
+<div class="container">
+     <div class="row">
+          <div class="col-md-4">
+              <h2 class="page-header">区块一</h2>
+              <p>水电费水电费水电费</p>
+          </div>
+         <div class="col-md-4">
+             <h2 class="page-header">区块一</h2>
+             <p>水电费水电费水电费</p>
+         </div>
+         <div class="col-md-4">
+             <h2 class="page-header">区块一</h2>
+             <p>水电费水电费水电费</p>
+         </div>
+     </div>
+
+    <h1 class="page-header">CSS<small>常用的css</small></h1>
+    <p>
+        <abbr class="initialism" title="sdfsdfsd">cms</abbr>,  ssssssssss ,
+        <strong>aaaaaa</strong> fdsfsdfsddf ,
+        <em>sdfsdfdss</em>
+    </p>
+    <blockquote>测试应用文字<small><cite>测试</cite></small></blockquote>
+
+    <h2>代码测试</h2>
+    <p>ssss<code>&lt;h3&gt;</code>ssdf</p>
+
+    <pre class="prettyprint linenums">&lt;?php if ( is_single() ): ?&gt;//只在文章页调用，可根据实际情况更改。
+&lt;link rel='stylesheet' href='http://www.zhangyexz.com/wp-content/themes/zanblog2.0.7/ui/google-code-prettify/prettify.css' media='all' /&gt;
+//推荐在head调用css，注意把路径改成你的。
+&lt;script type='text/javascript' src='http://www.zhangyexz.com/wp-content/themes/zanblog2.0.7/ui/google-code-prettify/prettify.js'&gt;&lt;/script&gt;
+&lt;?php endif; ?&gt;</pre>
+</div>
+
+</body>
+<#include "/ftl/common/common_script.ftl"/>
+<script>
+//    $(window).load(function(){
+//        $("pre").addClass("prettyprint linenums");
+//        prettyPrint();
+//    })
+</script>
+</html>

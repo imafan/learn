@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <#include "/ftl/common/head.ftl"/>
+    <title>试炼之地入口</title>
+</head>
+<body>
+<div class="container">
+
+    <form id="loginForm"  method="post"  class="login-form " autocomplete="off" onsubmit="login();return false;">
+        <h2 class="form-signin-heading">^_^被发现了</h2>
+
+        <div>
+            <!--<label><span>用户名</span>：<input name="username" type="text" placeholder="用户名" required></label>-->
+            <input name="username" type="text" class="form-control" placeholder="用户名" value="${username!}" >
+        </div>
+
+        <div>
+            <!--<label><span>密码</span>：<input name="pass" type="password"  placeholder="密码" required ></label>-->
+            <input name="pass" type="password" class="form-control" placeholder="密码" value="${pass!}" >
+        </div>
+        <div>
+            <!--<input name="validcode" type="text" class="form-control" placeholder="万恶的激活码" required>-->
+        </div>
+        <div id="errorMsg" class="erroMsg"><i class="icon-error"></i><span>${errorMsg!}</span> </div>
+        <div>
+            <button class="btn btn-lg btn-info btn-block" type="submit">登&nbsp;陆</button>
+        </div>
+
+        <div class="text-right">
+            <a href="#">忘记密码？</a>
+        </div>
+    </form>
+</div>
+
+</body>
+<style>
+    /*html {*/
+        /*background: url('/images/login_bg.jpg') no-repeat center center fixed;*/
+        /*-webkit-background-size: cover;*/
+        /*-moz-background-size: cover;*/
+        /*-o-background-size: cover;*/
+        /*background-size: cover;*/
+        /*-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/login_bg.jpg', sizingMethod='scale')";*/
+        /*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/login_bg.jpg', sizingMethod='scale');*/
+    /*}*/
+
+    /*body {*/
+        /*font-family: 'Microsoft Yahei', sans-serif;*/
+        /*background-color: inherit;*/
+    /*}*/
+    html,body {
+        background-color: #333;
+    }
+    body {
+        text-align: center;
+    }
+    .container {
+        border: 1px solid transparent;
+        max-width: 400px;
+        margin-top: 120px;
+        /*background-color: rgba(18,18,18,0.5);*/
+        background-color: #FFF;
+        border-radius: 5px;
+    }
+
+    .login-form {
+        width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #FFF;
+    }
+    .login-form h2{ font-size: 20px;}
+
+    .login-form .form-signin-heading{
+        text-align: center;
+    }
+
+    .login-form div {
+        font-size: 14px;
+        margin-top: 20px;
+    }
+
+    .login-form label {
+        font-weight: normal
+    }
+
+    .erroMsg{
+        text-align: left;
+        padding: 10px 20px;
+        display: none;
+        background-color: #f2dede;
+        border: 1px solid #ebccd1;
+        border-radius: 5px;
+        color: #a94442;
+
+    }
+
+    .erroMsg span{
+        position: relative;
+        top: 2px;
+        margin-left: 5px;
+    }
+
+    .login-form .login-findPass{
+       text-align: right;
+    }
+</style>
+<#include "/ftl/common/common_script.ftl"/>
+<script type="text/javascript">
+    function login() {
+
+        $.ajax({
+            url: "${base}/admin/doLogin",
+            type: "post",
+            data: $("#loginForm").serialize(),
+            success: function(res){
+                console.info(res);
+                if(res.success){
+                    window.location.href = "${base}/admin";
+                }else{
+                    $("#errorMsg span").text(res.errorMsg || "登陆失败");
+                    $("#errorMsg").show();
+                }
+            }
+        })
+    }
+</script>
+</html>

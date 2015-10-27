@@ -19,3 +19,4 @@ out/
 .project
 target/
 .classpath
+*.ppk
