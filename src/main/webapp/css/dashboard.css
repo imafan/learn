@@ -9,13 +9,16 @@ body {
 
 
 .navbar{
-    height: 50px;
+    height: 60px;
+    min-height: 60px;
     font-size: 14px;
     background-color: rgba(0,0,0,0.8);
+    margin-bottom: auto;
 }
 
 .navbar-brand{
-   font-size: inherit;
+   height: auto;
+   padding: 16px 21px;
 }
 
 .navbar-nav > li{
@@ -23,19 +26,20 @@ body {
 }
 .navbar-nav > li > a{
    /*font-size: 14px;*/
-  padding: 16px 18px;
+  padding: 13px 18px;
   color: #FFF;
   line-height: 16px!important;
 }
-.navbar-nav > li > a:hover{
-   background-color: #fff!important;
-   color: #333;
-}
+
 
 .navbar-nav > li > a > span{
   display: block;
   font-size: 10px;
   font-weight: normal;
+}
+
+.navbar-form{
+  padding: 12px 19px;
 }
 
 .navbar-form .form-control{
@@ -59,6 +63,10 @@ body {
  */
 .navbar-fixed-top {
   border: 0;
+}
+
+.navbar-inverse .navbar-collapse{
+  border: none;
 }
 
 /*
@@ -138,4 +146,17 @@ body {
 .placeholder img {
   display: inline-block;
   border-radius: 50%;
+}
+
+
+.badge-tip{
+  background-color: rgb(231, 80, 90);
+  color: #fff;
+  font-family: "Open Sans",sans-serif;
+  position: absolute;
+  top: 5px;
+  right: 6px;
+  font-weight: 300;
+  padding: 3px 4px;
+  font-size: 11px;
 }
