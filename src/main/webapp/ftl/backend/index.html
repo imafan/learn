@@ -27,10 +27,27 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#" class="fui-home" title="主页"><span>主&nbsp;页</span></a></li>
-                <li><a href="#" class="fui-mail" title="通知"><span>通&nbsp;知</span><span class="badge badge-tip">42</span></a></li>
-                <li><a href="#" class="fui-gear" title="设置"><span>设&nbsp;置</span></a></li>
-                <li><a href="/admin/logout" class="fui-exit" title="退出"><span>退&nbsp;出</span></a></li>
+                <li>
+                    <a href="#" class="fui-home" title="主页">
+                        <!--<span>主&nbsp;页</span>-->
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="fui-mail" title="通知">
+                        <!--<span>通&nbsp;知</span>-->
+                        <span class="badge badge-tip">42</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="fui-gear" title="设置">
+                       <!--<span>设&nbsp;置</span>-->
+                    </a>
+                </li>
+                <li>
+                    <a href="/admin/logout" class="fui-exit" title="退出">
+                        <!--<span>退&nbsp;出</span>-->
+                    </a>
+                </li>
             </ul>
 
             <form class="navbar-form navbar-right">
@@ -48,17 +65,33 @@
     </div>
 </nav>
 
-<div class="container">
+<div class="page-container">
+    <div class="page-sidebar-wrapper">
+        <div id="sidebar" class="page-sidebar">
+            <ul class="">
+                <li>
+                    <a href="#">
+                        <span class="title">Dashboard</span>
+                        <span class="selected"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">帖子管理</a>
+                </li>
+                <li>
+                    <a href="#">帖子管理</a>
+                </li>
+            </ul>
+        </div>
 
-    <!-- Main component for a primary marketing message or call to action -->
-    <div class="jumbotron">
-        <h1>Navbar example</h1>
-        <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-        <p>To see the difference between static and fixed top navbars, just scroll.</p>
-        <p>
-            <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
-        </p>
     </div>
+    <div class="page-content-wrapper">
+       <div class="container-fluid page-content">
+           sssss
+       </div>
+
+    </div>
+
 
 </div>
 
@@ -240,6 +273,13 @@
         $("#searchBar").blur(function(){
             $(this).animate({width: '200px'}, 500);
         });
+
+        $("#sidebar ul li a").click(function(){
+            console.info($(this).find("span.selected"));
+            if(!$(this).find("span.selected")){
+                  alert(1);
+            }
+        })
     })
 </script>
 </html>

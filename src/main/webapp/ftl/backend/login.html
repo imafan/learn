@@ -114,13 +114,23 @@
             url: "${base}/admin/doLogin",
             type: "post",
             data: $("#loginForm").serialize(),
+            beforeSend:function(){
+                  $("#loginForm").prop('disabled', false).find('input,select,textarea,button').each(function(){
+                      $(this).prop('disabled', true);
+                  });
+
+            },
             success: function(res){
-                console.info(res);
+
                 if(res.success){
                     window.location.href = "${base}/admin";
                 }else{
                     $("#errorMsg span").text(res.errorMsg || "登陆失败");
                     $("#errorMsg").show();
+
+                    $("#loginForm").prop('disabled', true).find('input,select,textarea,button').each(function(){
+                        $(this).prop('disabled', false);
+                    });
                 }
             }
         })

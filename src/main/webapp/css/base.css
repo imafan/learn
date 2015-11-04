@@ -1,5 +1,7 @@
 html,body{
-    height: 110%;
+    height: 100%;
+    background-color: #26344B;
+    font-family: 'Microsoft Yahei', sans-serif;
 }
 
 h1, .h1 {
@@ -23,3 +25,4 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     vertical-align: middle;
     background: url("/images/icon/cancel.png") no-repeat transparent;
 }
+
