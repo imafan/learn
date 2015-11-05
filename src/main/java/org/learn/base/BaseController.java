@@ -9,7 +9,7 @@ import com.jfinal.kit.PathKit;
 public class BaseController extends Controller {
 
     public static final String FRONT_PAGE = "/ftl/front";  //前台页面
-    public static final String BACKEND_PAGE = "/ftl/front"; //后台页面
+    public static final String BACKEND_PAGE = "/ftl/backend"; //后台页面
 
     public void renderFront(String view){
         super.render(FRONT_PAGE + view);

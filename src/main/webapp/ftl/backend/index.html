@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <#include "/ftl/common/head.ftl" />
+    <#include "/ftl/common/common_css.ftl" />
     <title>纳尼，这是哪里？？</title>
     <link href="/css/dashboard.css"  type="text/css"  rel="stylesheet"/>
     <style>
@@ -11,83 +11,39 @@
 
 <body>
 
+<#include "/ftl/common/head.html" />
 
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <!--缩小后显示-->
-            <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">-->
-                <!--<span class="sr-only">Toggle navigation</span>-->
-                <!--<span class="icon-bar"></span>-->
-                <!--<span class="icon-bar"></span>-->
-                <!--<span class="icon-bar"></span>-->
-            <!--</button>-->
-            <!--缩小后显示-->
-            <a class="navbar-brand" href="#">你瞅啥</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#" class="fui-home" title="主页">
-                        <!--<span>主&nbsp;页</span>-->
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="fui-mail" title="通知">
-                        <!--<span>通&nbsp;知</span>-->
-                        <span class="badge badge-tip">42</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="fui-gear" title="设置">
-                       <!--<span>设&nbsp;置</span>-->
-                    </a>
-                </li>
-                <li>
-                    <a href="/admin/logout" class="fui-exit" title="退出">
-                        <!--<span>退&nbsp;出</span>-->
-                    </a>
-                </li>
-            </ul>
-
-            <form class="navbar-form navbar-right">
-
-                <div class="input-group">
-                    <input id="searchBar" type="text" class="form-control" placeholder="搜索" aria-describedby="basic-addon2">
-                    <!--<span class="input-group-addon fui-search" id="basic-addon2"></span>-->
-                     <span class="input-group-btn">
-                        <button type="submit" class="btn"><span class="fui-search"></span></button>
-                    </span>
-                </div>
-                <!--<input type="text" class="form-control" placeholder="Search...">-->
-            </form>
-        </div>
-    </div>
-</nav>
 
 <div class="page-container">
     <div class="page-sidebar-wrapper">
         <div id="sidebar" class="page-sidebar">
             <ul class="">
                 <li>
-                    <a href="#">
+                    <a href="javascript:void(0)">
                         <span class="title">Dashboard</span>
                         <span class="selected"></span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">帖子管理</a>
+                    <a href="javascript:void(0)" url="${base}/admin/blog">帖子管理</a>
                 </li>
                 <li>
-                    <a href="#">帖子管理</a>
+                    <a href="javascript:void(0)">帖子管理</a>
                 </li>
             </ul>
         </div>
 
     </div>
+
     <div class="page-content-wrapper">
-       <div class="container-fluid page-content">
-           sssss
+       <div id="content" class="container-fluid page-content">
+           <ol class="breadcrumb">
+               <li><a href="#"><i class="glyphicon glyphicon-home"></i>Home</a></li>
+               <li><a href="#">Library</a></li>
+               <li class="active">Data</li>
+           </ol>
+
+
        </div>
 
     </div>
@@ -106,161 +62,161 @@
             </ul>
 
         </div>
-        &lt;!&ndash;<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">&ndash;&gt;
-            &lt;!&ndash;<h1 class="page-header">Dashboard</h1>&ndash;&gt;
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h1 class="page-header">Dashboard</h1>
 
-            &lt;!&ndash;<div class="row placeholders">&ndash;&gt;
-                &lt;!&ndash;<div class="col-xs-6 col-sm-3 placeholder">&ndash;&gt;
-                    &lt;!&ndash;<img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">&ndash;&gt;
-                    &lt;!&ndash;<h4>Label</h4>&ndash;&gt;
-                    &lt;!&ndash;<span class="text-muted">Something else</span>&ndash;&gt;
-                &lt;!&ndash;</div>&ndash;&gt;
-                &lt;!&ndash;<div class="col-xs-6 col-sm-3 placeholder">&ndash;&gt;
-                    &lt;!&ndash;<img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">&ndash;&gt;
-                    &lt;!&ndash;<h4>Label</h4>&ndash;&gt;
-                    &lt;!&ndash;<span class="text-muted">Something else</span>&ndash;&gt;
-                &lt;!&ndash;</div>&ndash;&gt;
-                &lt;!&ndash;<div class="col-xs-6 col-sm-3 placeholder">&ndash;&gt;
-                    &lt;!&ndash;<img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">&ndash;&gt;
-                    &lt;!&ndash;<h4>Label</h4>&ndash;&gt;
-                    &lt;!&ndash;<span class="text-muted">Something else</span>&ndash;&gt;
-                &lt;!&ndash;</div>&ndash;&gt;
-                &lt;!&ndash;<div class="col-xs-6 col-sm-3 placeholder">&ndash;&gt;
-                    &lt;!&ndash;<img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">&ndash;&gt;
-                    &lt;!&ndash;<h4>Label</h4>&ndash;&gt;
-                    &lt;!&ndash;<span class="text-muted">Something else</span>&ndash;&gt;
-                &lt;!&ndash;</div>&ndash;&gt;
-            &lt;!&ndash;</div>&ndash;&gt;
+        <div class="row placeholders">
+            <div class="col-xs-6 col-sm-3 placeholder">
+                <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
+                <h4>Label</h4>
+                <span class="text-muted">Something else</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+                <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+                <h4>Label</h4>
+                <span class="text-muted">Something else</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+                <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
+                <h4>Label</h4>
+                <span class="text-muted">Something else</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+                <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+                <h4>Label</h4>
+                <span class="text-muted">Something else</span>
+            </div>
+        </div>
 
-            &lt;!&ndash;<h2 class="sub-header">Section title</h2>&ndash;&gt;
-            &lt;!&ndash;<div class="table-responsive">&ndash;&gt;
-                &lt;!&ndash;<table class="table table-striped">&ndash;&gt;
-                    &lt;!&ndash;<thead>&ndash;&gt;
-                    &lt;!&ndash;<tr>&ndash;&gt;
-                        &lt;!&ndash;<th>#</th>&ndash;&gt;
-                        &lt;!&ndash;<th>Header</th>&ndash;&gt;
-                        &lt;!&ndash;<th>Header</th>&ndash;&gt;
-                        &lt;!&ndash;<th>Header</th>&ndash;&gt;
-                        &lt;!&ndash;<th>Header</th>&ndash;&gt;
-                    &lt;!&ndash;</tr>&ndash;&gt;
-                    &lt;!&ndash;</thead>&ndash;&gt;
-                    &lt;!&ndash;<tbody>&ndash;&gt;
-                    &lt;!&ndash;<tr>&ndash;&gt;
-                        &lt;!&ndash;<td>1,001</td>&ndash;&gt;
-                        &lt;!&ndash;<td>Lorem</td>&ndash;&gt;
-                        &lt;!&ndash;<td>ipsum</td>&ndash;&gt;
-                        &lt;!&ndash;<td>dolor</td>&ndash;&gt;
-                        &lt;!&ndash;<td>sit</td>&ndash;&gt;
-                    &lt;!&ndash;</tr>&ndash;&gt;
-                    &lt;!&ndash;<tr>&ndash;&gt;
-                        &lt;!&ndash;<td>1,002</td>&ndash;&gt;
-                        &lt;!&ndash;<td>amet</td>&ndash;&gt;
-                        &lt;!&ndash;<td>consectetur</td>&ndash;&gt;
-                        &lt;!&ndash;<td>adipiscing</td>&ndash;&gt;
-                        &lt;!&ndash;<td>elit</td>&ndash;&gt;
-                    &lt;!&ndash;</tr>&ndash;&gt;
-                    &lt;!&ndash;<tr>&ndash;&gt;
-                        &lt;!&ndash;<td>1,003</td>&ndash;&gt;
-                        &lt;!&ndash;<td>Integer</td>&ndash;&gt;
-                        &lt;!&ndash;<td>nec</td>&ndash;&gt;
-                        &lt;!&ndash;<td>odio</td>&ndash;&gt;
-                        &lt;!&ndash;<td>Praesent</td>&ndash;&gt;
-                    &lt;!&ndash;</tr>&ndash;&gt;
-                    &lt;!&ndash;<tr>&ndash;&gt;
-                        &lt;!&ndash;<td>1,003</td>&ndash;&gt;
-                        &lt;!&ndash;<td>libero</td>&ndash;&gt;
-                        &lt;!&ndash;<td>Sed</td>&ndash;&gt;
-                        &lt;!&ndash;<td>cursus</td>&ndash;&gt;
-                        &lt;!&ndash;<td>ante</td>&ndash;&gt;
-                    &lt;!&ndash;</tr>&ndash;&gt;
-                    &lt;!&ndash;<tr>&ndash;&gt;
-                        &lt;!&ndash;<td>1,004</td>&ndash;&gt;
-                        &lt;!&ndash;<td>dapibus</td>&ndash;&gt;
-                        &lt;!&ndash;<td>diam</td>&ndash;&gt;
-                        &lt;!&ndash;<td>Sed</td>&ndash;&gt;
-                        &lt;!&ndash;<td>nisi</td>&ndash;&gt;
-                    &lt;!&ndash;</tr>&ndash;&gt;
-                    &lt;!&ndash;<tr>&ndash;&gt;
-                        &lt;!&ndash;<td>1,005</td>&ndash;&gt;
-                        &lt;!&ndash;<td>Nulla</td>&ndash;&gt;
-                        &lt;!&ndash;<td>quis</td>&ndash;&gt;
-                        &lt;!&ndash;<td>sem</td>&ndash;&gt;
-                        &lt;!&ndash;<td>at</td>&ndash;&gt;
-                    &lt;!&ndash;</tr>&ndash;&gt;
-                    &lt;!&ndash;<tr>&ndash;&gt;
-                        &lt;!&ndash;<td>1,006</td>&ndash;&gt;
-                        &lt;!&ndash;<td>nibh</td>&ndash;&gt;
-                        &lt;!&ndash;<td>elementum</td>&ndash;&gt;
-                        &lt;!&ndash;<td>imperdiet</td>&ndash;&gt;
-                        &lt;!&ndash;<td>Duis</td>&ndash;&gt;
-                    &lt;!&ndash;</tr>&ndash;&gt;
-                    &lt;!&ndash;<tr>&ndash;&gt;
-                        &lt;!&ndash;<td>1,007</td>&ndash;&gt;
-                        &lt;!&ndash;<td>sagittis</td>&ndash;&gt;
-                        &lt;!&ndash;<td>ipsum</td>&ndash;&gt;
-                        &lt;!&ndash;<td>Praesent</td>&ndash;&gt;
-                        &lt;!&ndash;<td>mauris</td>&ndash;&gt;
-                    &lt;!&ndash;</tr>&ndash;&gt;
-                    &lt;!&ndash;<tr>&ndash;&gt;
-                        &lt;!&ndash;<td>1,008</td>&ndash;&gt;
-                        &lt;!&ndash;<td>Fusce</td>&ndash;&gt;
-                        &lt;!&ndash;<td>nec</td>&ndash;&gt;
-                        &lt;!&ndash;<td>tellus</td>&ndash;&gt;
-                        &lt;!&ndash;<td>sed</td>&ndash;&gt;
-                    &lt;!&ndash;</tr>&ndash;&gt;
-                    &lt;!&ndash;<tr>&ndash;&gt;
-                        &lt;!&ndash;<td>1,009</td>&ndash;&gt;
-                        &lt;!&ndash;<td>augue</td>&ndash;&gt;
-                        &lt;!&ndash;<td>semper</td>&ndash;&gt;
-                        &lt;!&ndash;<td>porta</td>&ndash;&gt;
-                        &lt;!&ndash;<td>Mauris</td>&ndash;&gt;
-                    &lt;!&ndash;</tr>&ndash;&gt;
-                    &lt;!&ndash;<tr>&ndash;&gt;
-                        &lt;!&ndash;<td>1,010</td>&ndash;&gt;
-                        &lt;!&ndash;<td>massa</td>&ndash;&gt;
-                        &lt;!&ndash;<td>Vestibulum</td>&ndash;&gt;
-                        &lt;!&ndash;<td>lacinia</td>&ndash;&gt;
-                        &lt;!&ndash;<td>arcu</td>&ndash;&gt;
-                    &lt;!&ndash;</tr>&ndash;&gt;
-                    &lt;!&ndash;<tr>&ndash;&gt;
-                        &lt;!&ndash;<td>1,011</td>&ndash;&gt;
-                        &lt;!&ndash;<td>eget</td>&ndash;&gt;
-                        &lt;!&ndash;<td>nulla</td>&ndash;&gt;
-                        &lt;!&ndash;<td>Class</td>&ndash;&gt;
-                        &lt;!&ndash;<td>aptent</td>&ndash;&gt;
-                    &lt;!&ndash;</tr>&ndash;&gt;
-                    &lt;!&ndash;<tr>&ndash;&gt;
-                        &lt;!&ndash;<td>1,012</td>&ndash;&gt;
-                        &lt;!&ndash;<td>taciti</td>&ndash;&gt;
-                        &lt;!&ndash;<td>sociosqu</td>&ndash;&gt;
-                        &lt;!&ndash;<td>ad</td>&ndash;&gt;
-                        &lt;!&ndash;<td>litora</td>&ndash;&gt;
-                    &lt;!&ndash;</tr>&ndash;&gt;
-                    &lt;!&ndash;<tr>&ndash;&gt;
-                        &lt;!&ndash;<td>1,013</td>&ndash;&gt;
-                        &lt;!&ndash;<td>torquent</td>&ndash;&gt;
-                        &lt;!&ndash;<td>per</td>&ndash;&gt;
-                        &lt;!&ndash;<td>conubia</td>&ndash;&gt;
-                        &lt;!&ndash;<td>nostra</td>&ndash;&gt;
-                    &lt;!&ndash;</tr>&ndash;&gt;
-                    &lt;!&ndash;<tr>&ndash;&gt;
-                        &lt;!&ndash;<td>1,014</td>&ndash;&gt;
-                        &lt;!&ndash;<td>per</td>&ndash;&gt;
-                        &lt;!&ndash;<td>inceptos</td>&ndash;&gt;
-                        &lt;!&ndash;<td>himenaeos</td>&ndash;&gt;
-                        &lt;!&ndash;<td>Curabitur</td>&ndash;&gt;
-                    &lt;!&ndash;</tr>&ndash;&gt;
-                    &lt;!&ndash;<tr>&ndash;&gt;
-                        &lt;!&ndash;<td>1,015</td>&ndash;&gt;
-                        &lt;!&ndash;<td>sodales</td>&ndash;&gt;
-                        &lt;!&ndash;<td>ligula</td>&ndash;&gt;
-                        &lt;!&ndash;<td>in</td>&ndash;&gt;
-                        &lt;!&ndash;<td>libero</td>&ndash;&gt;
-                    &lt;!&ndash;</tr>&ndash;&gt;
-                    &lt;!&ndash;</tbody>&ndash;&gt;
-                &lt;!&ndash;</table>&ndash;&gt;
-            &lt;!&ndash;</div>&ndash;&gt;
-        &lt;!&ndash;</div>&ndash;&gt;
+        <h2 class="sub-header">Section title</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Header</th>
+                    <th>Header</th>
+                    <th>Header</th>
+                    <th>Header</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1,001</td>
+                    <td>Lorem</td>
+                    <td>ipsum</td>
+                    <td>dolor</td>
+                    <td>sit</td>
+                </tr>
+                <tr>
+                    <td>1,002</td>
+                    <td>amet</td>
+                    <td>consectetur</td>
+                    <td>adipiscing</td>
+                    <td>elit</td>
+                </tr>
+                <tr>
+                    <td>1,003</td>
+                    <td>Integer</td>
+                    <td>nec</td>
+                    <td>odio</td>
+                    <td>Praesent</td>
+                </tr>
+                <tr>
+                    <td>1,003</td>
+                    <td>libero</td>
+                    <td>Sed</td>
+                    <td>cursus</td>
+                    <td>ante</td>
+                </tr>
+                <tr>
+                    <td>1,004</td>
+                    <td>dapibus</td>
+                    <td>diam</td>
+                    <td>Sed</td>
+                    <td>nisi</td>
+                </tr>
+                <tr>
+                    <td>1,005</td>
+                    <td>Nulla</td>
+                    <td>quis</td>
+                    <td>sem</td>
+                    <td>at</td>
+                </tr>
+                <tr>
+                    <td>1,006</td>
+                    <td>nibh</td>
+                    <td>elementum</td>
+                    <td>imperdiet</td>
+                    <td>Duis</td>
+                </tr>
+                <tr>
+                    <td>1,007</td>
+                    <td>sagittis</td>
+                    <td>ipsum</td>
+                    <td>Praesent</td>
+                    <td>mauris</td>
+                </tr>
+                <tr>
+                    <td>1,008</td>
+                    <td>Fusce</td>
+                    <td>nec</td>
+                    <td>tellus</td>
+                    <td>sed</td>
+                </tr>
+                <tr>
+                    <td>1,009</td>
+                    <td>augue</td>
+                    <td>semper</td>
+                    <td>porta</td>
+                    <td>Mauris</td>
+                </tr>
+                <tr>
+                    <td>1,010</td>
+                    <td>massa</td>
+                    <td>Vestibulum</td>
+                    <td>lacinia</td>
+                    <td>arcu</td>
+                </tr>
+                <tr>
+                    <td>1,011</td>
+                    <td>eget</td>
+                    <td>nulla</td>
+                    <td>Class</td>
+                    <td>aptent</td>
+                </tr>
+                <tr>
+                    <td>1,012</td>
+                    <td>taciti</td>
+                    <td>sociosqu</td>
+                    <td>ad</td>
+                    <td>litora</td>
+                </tr>
+                <tr>
+                    <td>1,013</td>
+                    <td>torquent</td>
+                    <td>per</td>
+                    <td>conubia</td>
+                    <td>nostra</td>
+                </tr>
+                <tr>
+                    <td>1,014</td>
+                    <td>per</td>
+                    <td>inceptos</td>
+                    <td>himenaeos</td>
+                    <td>Curabitur</td>
+                </tr>
+                <tr>
+                    <td>1,015</td>
+                    <td>sodales</td>
+                    <td>ligula</td>
+                    <td>in</td>
+                    <td>libero</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
     </div>
 </div>-->
 </body>
@@ -275,10 +231,10 @@
         });
 
         $("#sidebar ul li a").click(function(){
-            console.info($(this).find("span.selected"));
-            if(!$(this).find("span.selected")){
-                  alert(1);
-            }
+            $(this).closest("ul").find("span.selected").remove();
+            $(this).append("<span class='selected'></span>");
+
+            $("#content").load($(this).attr("url"));
         })
     })
 </script>
