@@ -10,4 +10,8 @@ public class IndexController extends Controller {
     public void index(){
         render("index.html");
     }
+
+    public void learn_1(){
+        render("learn_1.html");
+    }
 }
