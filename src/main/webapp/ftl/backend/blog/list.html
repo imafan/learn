@@ -1,57 +1,63 @@
+<ol class="breadcrumb">
+    <li><a href="#"><i class="glyphicon glyphicon-home"></i>帖子管理</a></li>
+</ol>
+
+
 <div class="inner-container">
     <div class="row">
         <div class="col-md-9">
-            <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>新增</button>
+            <button id="add" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>新增</button>
         </div>
         <div class="col-md-3">
             <div class="input-group">
-                <input class="form-control" id="navbarInput-01" type="search" placeholder="Search">
-                <span class="input-group-btn">
-                  <button type="submit" class="btn"><span class="fui-search"></span></button>
-                </span>
+                <input type="text" class="form-control">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button">搜索</button>
+              </span>
             </div>
         </div>
     </div>
     <div class="row">
         <div>
-            <table class="table table-bordered  table-striped">
+            <table class="table table-bordered table-striped">
                 <thead>
                   <tr>
-                     <th></th>
+                     <th style="width: 50px"></th>
                      <th>标题</th>
                      <th>作者</th>
-                     <th>发表时间</th>
-                     <th>状态</th>
-                     <th>操作</th>
+                     <th style="width: 200px">发表时间</th>
+                     <th style="width: 80px">状态</th>
+                     <th style="width: 300px">操作</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                     <td>1</td>
-                     <td>测试测试</td>
-                     <td>AAAA</td>
-                     <td>2015-11-05</td>
-                     <td>发布中</td>
-                     <td>
-                        <a href="#">编辑</a>
-                        <a href="#">删除</a>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>2</td>
-                     <td>测试测试</td>
-                     <td>AAAA</td>
-                     <td>2015-11-05</td>
-                     <td>发布中</td>
-                     <td>
-                        <a href="#">编辑</a>
-                        <a href="#">删除</a>
-                     </td>
-                  </tr>
-                </tbody>
+                <#if blogs??>
+                    <#list blogs as blog>
+                        <tr>
+                            <td>1</td>
+                            <td>${blog.title!}</td>
+                            <td>${blog.description!}</td>
+                            <td>${blog.createTime!}</td>
+                            <td></td>
+                            <td>
+                                <a href="javascript:void(0)" url="" class="btn btn-info btn-sm"><i class="glyphicon glyphicon-info-sign"></i> 详情</a>
+                                <a href="javascript:void(0)" url="" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-edit"></i> 编辑</a>
+                                <a href="#" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-remove"></i> 删除</a>
+                            </td>
+                        </tr>
 
+                    </#list>
+                </#if>
+                </tbody>
             </table>
         </div>
     </div>
 
 </div>
+<script>
+$(function(){
+    $("#add").on("click",function(){
+        loadContent("${base}/admin/blog/addBlog");
+    });
+})
+</script>

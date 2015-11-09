@@ -6,3 +6,4 @@
 <!-- [if lt IE 9]>
 <script src="http://html5shim.goolecode.com/svn/trunk/html5.js"></script>
 <![endif] -->
+<script src="/js/base.js" type="text/javascript"></script>
