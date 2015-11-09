@@ -27,6 +27,8 @@ public class BlogController extends Controller {
     }
 
     public void add() {
+        Blog blog = getModel(Blog.class);
+        blog.set("")
         renderJson("success", true);
     }
 }
