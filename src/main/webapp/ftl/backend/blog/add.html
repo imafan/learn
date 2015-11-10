@@ -12,14 +12,7 @@
                 <label for="inputTitle" class="col-sm-2 control-label">标题</label>
 
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" id="inputTitle" placeholder="标题">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="inputPassword3" class="col-sm-2 control-label">作者</label>
-
-                <div class="col-sm-4">
-                    <input type="password" class="form-control" id="inputPassword3" placeholder="作者">
+                    <input type="text" id="inputTitle" name="blog.title"  class="form-control"  placeholder="标题">
                 </div>
             </div>
 
@@ -27,7 +20,7 @@
                 <label for="description" class="col-sm-2 control-label">描述</label>
 
                 <div class="col-sm-10">
-                    <textarea id="description" class="form-control" rows="3"></textarea>
+                    <textarea id="description" name="blog.description" class="form-control" rows="3"></textarea>
                 </div>
             </div>
 
@@ -53,6 +46,7 @@
             success: function(res){
                 if(res.success){
                     alert("添加成功");
+                    loadContent("${base}/admin/blog");
                 }else{
                     alert("添加失败");
                 }

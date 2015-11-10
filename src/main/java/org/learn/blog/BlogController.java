@@ -3,7 +3,9 @@ package org.learn.blog;
 import com.jfinal.core.Controller;
 import org.learn.base.BaseController;
 import org.learn.user.User;
+import org.learn.util.Constants;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -28,7 +30,11 @@ public class BlogController extends Controller {
 
     public void add() {
         Blog blog = getModel(Blog.class);
-        blog.set("")
+
+        User loginUser = getSessionAttr(Constants.SESSION_LOGIN_USER);
+        blog.set("userId",loginUser.get("id"));
+        blog.set("createTime",new Date());
+        blog.save();
         renderJson("success", true);
     }
 }
