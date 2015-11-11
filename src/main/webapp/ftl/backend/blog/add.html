@@ -17,10 +17,10 @@
             </div>
 
             <div class="form-group">
-                <label for="description" class="col-sm-2 control-label">描述</label>
+                <label for="content" class="col-sm-2 control-label">内容</label>
 
                 <div class="col-sm-10">
-                    <textarea id="description" name="blog.description" class="form-control" rows="3"></textarea>
+                    <textarea id="content" name="blog.content" class="form-control" rows="3"></textarea>
                 </div>
             </div>
 
@@ -36,7 +36,7 @@
 <script src="/assets/ckeditor/ckeditor.js" type="text/javascript"></script>
 <script>
 
-    var editor = CKEDITOR.replace('description');
+    var editor = CKEDITOR.replace('blog.content');
     function submitBlog(){
 
         $.ajax({

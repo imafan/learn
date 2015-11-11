@@ -37,4 +37,27 @@ public class BlogController extends Controller {
         blog.save();
         renderJson("success", true);
     }
+
+    public void editBlog(){
+        String blogId = getPara("blogId");
+        Blog blog = blogService.findById(blogId);
+        setAttr("blog",blog);
+        renderFreeMarker("blog/edit.html");
+    }
+
+    public void edit(){
+        Blog blog = getModel(Blog.class);
+
+        blog.update();
+        renderJson("success", true);
+
+    }
+
+    public void detail(){
+
+        String blogId = getPara("blogId");
+        Blog blog = blogService.findById(blogId);
+        setAttr("blog",blog);
+        renderFreeMarker("blog/detail.html");
+    }
 }

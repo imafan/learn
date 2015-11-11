@@ -5,6 +5,7 @@ import com.jfinal.plugin.activerecord.Page;
 import org.apache.commons.lang.StringUtils;
 import org.learn.annotation.Table;
 
+import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
@@ -16,9 +17,10 @@ public abstract class BaseService<T extends Model> {
 
     protected String tableName;
     protected Class<T> entityClass;
-    protected Object obj;
+    protected T obj;
 
-    public BaseService() {
+
+    public BaseService(){
         entityClass =  (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
         Table table = entityClass.getAnnotation(Table.class);
         if (table != null && StringUtils.isNotBlank(table.tableName()))
@@ -32,10 +34,9 @@ public abstract class BaseService<T extends Model> {
         System.out.println("tableName:" + tableName);
     }
 
-    public List<T> findAll() {
+    public List<T> findAll(){
         try{
-            Method method = entityClass.getMethod("find",String.class);
-            return (List<T>)method.invoke(getEntityInstance(),"select * from " + wrap(tableName));
+            return (List<T>)getEntityInstance().find("select * from " + wrap(tableName));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -44,37 +45,23 @@ public abstract class BaseService<T extends Model> {
 
     public Page<T> findByPage(int page, int pageSize){
         try{
-            Method method = entityClass.getMethod("paginate",int.class,int.class,String.class,String.class);
-            return (Page<T>)method.invoke(getEntityInstance(),page,pageSize,"select *","from " + wrap(tableName));
+            return (Page<T>)getEntityInstance().paginate(page,pageSize,"select *","from " + wrap(tableName));
         }catch (Exception e){
             e.printStackTrace();
         }
         return null;
-
     }
 
-//    public Serializable save(T model){
-//        if(model != null){
-//            model.save();
-//            return  model.getStr("id");
-//        }
-//
-//        return -1;
-//    }
-//
-//    public boolean update(T model){
-//        if(model != null){
-//            return model.update();
-//        }
-//        return false;
-//    }
-//
-//    public boolean deleteById(Serializable id){
-//        return Db.deleteById(tableName,id);
-//    }
+    public T findById(Serializable id){
+        try{
+           return (T)getEntityInstance().findById(id);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
 
-
-    private Object getEntityInstance() throws Exception{
+    private T getEntityInstance() throws Exception{
         if(obj == null){
             obj = entityClass.newInstance();
         }
