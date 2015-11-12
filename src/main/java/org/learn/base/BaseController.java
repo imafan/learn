@@ -10,6 +10,8 @@ public class BaseController extends Controller {
 
     public static final String FRONT_PAGE = "/ftl/front";  //前台页面
     public static final String BACKEND_PAGE = "/ftl/backend"; //后台页面
+    public static final int DEFAULT_PAGE = 1;
+    public static final int DEFAULT_PAGE_SIZE = 10;  //默认分页大小
 
     public void renderFront(String view){
         super.render(FRONT_PAGE + view);

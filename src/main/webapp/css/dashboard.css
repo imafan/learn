@@ -192,6 +192,7 @@ body {
   margin-left: 200px;
   padding: 20px;
   min-height: 600px;
+  width: auto;
 }
 
 .page-container:after{

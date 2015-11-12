@@ -69,7 +69,7 @@ public abstract class BaseService<T extends Model> {
         return obj;
     }
 
-    private String wrap(String name) {
+    protected String wrap(String name) {
         return "`" + name + "`";
     }
 }

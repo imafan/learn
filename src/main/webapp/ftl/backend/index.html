@@ -36,7 +36,7 @@
     </div>
 
     <div class="page-content-wrapper">
-       <div id="content" class="container-fluid page-content">
+       <div id="content" class="container page-content">
            <ol class="breadcrumb">
                <li><a href="#"><i class="glyphicon glyphicon-home"></i>Home</a></li>
                <li><a href="#">Library</a></li>
@@ -45,9 +45,7 @@
 
 
        </div>
-
     </div>
-
 
 </div>
 
@@ -70,20 +68,6 @@
             if(url){
                 loadContent(url + "?_=" + (new Date()).getTime());
             }
-
-
-//            $.ajax({
-//                url: $(this).attr("url") + "?_=" + (new Date()).getTime(),
-//                type: "get",
-//                beforeSend: function(){
-////                    $("#content").fadeOut();
-//                },
-//                success: function(res){
-//                    console.info(res);
-//                    $("#content").html(res);
-//                    $("#content").fadeIn();
-//                }
-//            })
         })
     })
 </script>

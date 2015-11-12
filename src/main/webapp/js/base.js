@@ -1,6 +1,7 @@
 /**
  * Created by imafan_work on 2015/11/6 0006.
  */
+
 $(function(){
     $('#content').on('focus', '.form-control', function () {
         $(this).closest('.input-group, .form-group').addClass('focus');
@@ -22,8 +23,9 @@ $(function(){
     })
 })
 
+
 function loadContent(url){
     $("#content").load(url,function(res){
-        $("#content").fadeIn();
+        //$("#content").fadeIn();
     });
 }
