@@ -3,6 +3,7 @@
 <script src="/js/bootstrap.js" type="text/javascript" ></script>
 <script src="/js/prettify/prettify.js" type="text/javascript" ></script>
 <script src="/js/flat-ui.js"  type="text/javascript" ></script>
+<script src="/assets/layer/layer.js" type="text/javascript"></script>
 <!-- [if lt IE 9]>
 <script src="http://html5shim.goolecode.com/svn/trunk/html5.js"></script>
 <![endif] -->

@@ -8,6 +8,7 @@
 <link href="/css/bootstrap.css" type="text/css" rel="stylesheet" />
 <link href="/js/prettify/prettify.css" type="text/css" rel="stylesheet"/>
 <link href="/css/flat-ui.css" type="text/css"  rel="stylesheet"/>
+<link href="/assets/layer/skin/layer.css" rel="stylesheet">
 <link href="/css/base.css" type="text/css"  rel="stylesheet"/>
 
 

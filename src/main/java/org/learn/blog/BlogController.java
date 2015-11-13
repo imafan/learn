@@ -45,6 +45,7 @@ public class BlogController extends BaseController {
         User loginUser = getSessionAttr(Constants.SESSION_LOGIN_USER);
         blog.set("userId",loginUser.get("id"));
         blog.set("createTime",new Date());
+
         blog.save();
         renderJson("success", true);
     }

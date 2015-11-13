@@ -45,10 +45,13 @@
             data: $("#addBlogForm").serialize(),
             success: function(res){
                 if(res.success){
-                    alert("添加成功");
-                    loadContent("${base}/admin/blog");
+                    layer.alert("添加成功",{icon:1,title:"系统提示"},function(index){
+                        loadContent("${base}/admin/blog");
+                        layer.close(index);
+                    })
+
                 }else{
-                    alert("添加失败");
+                    layer.alert("添加失败",{icon:5,title:"系统提示"});
                 }
             }
         })
