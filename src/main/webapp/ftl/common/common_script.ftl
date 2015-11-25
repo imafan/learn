@@ -4,6 +4,8 @@
 <script src="/js/prettify/prettify.js" type="text/javascript" ></script>
 <script src="/js/flat-ui.js"  type="text/javascript" ></script>
 <script src="/assets/layer/layer.js" type="text/javascript"></script>
+<script src="/assets/page-loading-effects/js/classie.js" type="text/javascript"></script>
+<script src="/assets/page-loading-effects/js/snap.svg-min.js" type="text/javascript"></script>
 <!-- [if lt IE 9]>
 <script src="http://html5shim.goolecode.com/svn/trunk/html5.js"></script>
 <![endif] -->

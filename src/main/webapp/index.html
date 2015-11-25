@@ -55,5 +55,65 @@
 //        $("pre").addClass("prettyprint linenums");
 //        prettyPrint();
 //    })
+
+/*function A(){
+    alert("执行了");
+    this.name = 'longze';
+}
+A.prototype.age = 29;
+//A.prototype.name = 'longze';
+
+function extend(Child, Parent) {
+    var F = function(){};
+    F.prototype = Parent.prototype;
+    Child.prototype = new F();
+    Child.prototype.constructor = Child;
+    Child.uber = Parent.prototype;
+}
+
+function extendsCopy(obj){
+    var temp = function(){};
+    console.info(obj.prototype);
+    temp.prototype = obj;
+    return new temp();
+}
+
+function B(){
+    A.apply(this,arguments);
+}
+
+extend(B,A);
+var b = new B();
+alert("B:" + b.age);
+alert("B:" + b.name);*/
+
+
+function A(){
+    alert('3223');
+    this.name = 'tom';
+}
+A.prototype.age = 29;
+function inheritPrototype(subType,superType){
+    var obj = new Object(superType.prototype);
+    subType.prototype = obj;
+    subType.prototype.constructor = subType;
+}
+function extend(Child, Parent) {
+    var F = function(){};
+    F.prototype = Parent.prototype;
+    Child.prototype = new F();
+    Child.prototype.constructor = Child;
+    Child.uber = Parent.prototype;
+}
+function a(){
+    A.call(this);
+    this.sex = 'boy';
+}
+extend(a,A);
+//a.prototype = new A();
+//a.prototype.constructor = a;
+var person = new a();
+console.log(person.name);
+
 </script>
 </html>

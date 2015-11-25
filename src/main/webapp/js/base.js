@@ -25,6 +25,7 @@ $(function(){
 
 
 function loadContent(url){
+
     $("#content").load(url,function(res){
         //$("#content").fadeIn();
     });
