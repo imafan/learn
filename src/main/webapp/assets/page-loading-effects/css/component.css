@@ -1,28 +1,30 @@
-.container {
+/*.container {
 	display: none;
 }
 
 .container.show {
 	display: block;
-}
+}*/
 
 .pageload-overlay {
-	position: fixed;
+	/*position: fixed;*/
 	width: 100%;
 	height: 100%;
-	top: 0;
-	left: 0;
-	visibility: hidden;
+	/*top: 0;*/
+	/*left: 0;*/
+	/*visibility: hidden;*/
+	display: none;
 }
 
 .pageload-overlay.show {
-	visibility: visible;
+	/*visibility: visible;*/
+
 }
 
 .pageload-overlay svg {
-	position: absolute;
-	top: 0;
-	left: 0;
+	/*position: absolute;*/
+	/*top: 0;*/
+	/*left: 0;*/
 	pointer-events: none;
 }
 

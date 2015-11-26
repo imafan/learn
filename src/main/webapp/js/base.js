@@ -23,10 +23,16 @@ $(function(){
     })
 })
 
-
-function loadContent(url){
-
+var loader = new SVGLoader( document.getElementById( 'loader' ), { speedIn : 200, easingIn : mina.linear } );
+function loadContent(url, fn){
+    $("#content").hide();
+    loader.show();
     $("#content").load(url,function(res){
-        //$("#content").fadeIn();
+
+        //loader.hide();
+        //$("#content").show();
+        if(fn && typeof fn == "function"){
+            fn.call(this,arguments);
+        }
     });
 }

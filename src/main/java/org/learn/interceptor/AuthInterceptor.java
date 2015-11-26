@@ -20,6 +20,11 @@ public class AuthInterceptor implements Interceptor {
 
         String path = request.getServletPath();
         if(StringUtils.isNotBlank(path) && path.startsWith("/admin")){
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             HttpSession session = invocation.getController().getSession();
             User loginUser = (User)session.getAttribute(Constants.SESSION_LOGIN_USER);
             if(loginUser == null){
