@@ -21,7 +21,7 @@
     </div>
     <div class="row">
         <div>
-            <table class="table table-bordered table-striped">
+            <table class="table  table-striped">
                 <thead>
                   <tr>
                      <th style="width: 50px"></th>
@@ -34,12 +34,12 @@
                 </thead>
                 <tbody>
                 <#if blogs??>
-                    ${blogs}
+
                     <#list blogs.list as blog>
                         <tr>
                             <td>${blog_index+1}</td>
                             <td>${blog.title!}</td>
-                            <td>${blog.description!}</td>
+                            <td>${blog.userName!"未知"}</td>
                             <td>${blog.createTime!}</td>
                             <td>
                                 <#if (blog.status)??>

@@ -1,20 +1,18 @@
 package org.learn.blog;
 
-import com.jfinal.core.Controller;
 import com.jfinal.plugin.activerecord.Page;
 import org.learn.base.BaseController;
 import org.learn.user.User;
 import org.learn.util.Constants;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by imafan_work on 2015/11/5 0005.
  */
 public class BlogController extends BaseController {
 
-    private BlogService blogService = new BlogService();
+    private BlogService blogService = BlogService.getInstance();
 
     public void index(){
 

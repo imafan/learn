@@ -1,28 +1,28 @@
 package org.learn.base;
 
+import cn.dreampie.tablebind.TableBind;
 import com.jfinal.plugin.activerecord.Model;
 import com.jfinal.plugin.activerecord.Page;
 import org.apache.commons.lang.StringUtils;
-import org.learn.annotation.Table;
 
 import java.io.Serializable;
-import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 /**
  * Created by imafan_work on 2015/10/16 0016.
  */
-public abstract class BaseService<T extends Model> {
+public class BaseService<T extends Model> {
 
-    protected String tableName;
+    public String tableName;
     protected Class<T> entityClass;
     protected T obj;
 
 
+
     public BaseService(){
         entityClass =  (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-        Table table = entityClass.getAnnotation(Table.class);
+        TableBind table = entityClass.getAnnotation(TableBind.class);
         if (table != null && StringUtils.isNotBlank(table.tableName()))
         {
             tableName = table.tableName();
@@ -33,6 +33,14 @@ public abstract class BaseService<T extends Model> {
         }
         System.out.println("tableName:" + tableName);
     }
+
+/*    private static class SingletonHolder{
+        private static final BaseService INSTANCE = new BaseService();
+    }
+
+    public static final BaseService getInstance(){
+        return SingletonHolder.INSTANCE;
+    }*/
 
     public List<T> findAll(){
         try{
@@ -69,7 +77,11 @@ public abstract class BaseService<T extends Model> {
         return obj;
     }
 
-    protected String wrap(String name) {
+    private String wrap(String name) {
         return "`" + name + "`";
+    }
+
+    public String getTableName(){
+        return wrap(tableName);
     }
 }
