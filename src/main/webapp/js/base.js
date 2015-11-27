@@ -23,14 +23,9 @@ $(function(){
     })
 })
 
-var loader = new SVGLoader( document.getElementById( 'loader' ), { speedIn : 200, easingIn : mina.linear } );
-function loadContent(url, fn){
-    $("#content").hide();
-    loader.show();
-    $("#content").load(url,function(res){
 
-        //loader.hide();
-        //$("#content").show();
+function loadContent(url, fn){
+    $("#content").load(url,function(res){
         if(fn && typeof fn == "function"){
             fn.call(this,arguments);
         }
