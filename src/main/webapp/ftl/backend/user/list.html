@@ -1,0 +1,123 @@
+
+
+<ol class="breadcrumb">
+    <li><a href="#"><i class="glyphicon glyphicon-home"></i>用户管理</a></li>
+</ol>
+
+
+<div class="inner-container">
+    <div class="row">
+        <div class="col-md-9">
+            <button id="add" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>新增</button>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <input type="text" class="form-control">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button">搜索</button>
+              </span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div>
+            <table class="table  table-striped">
+                <thead>
+                  <tr>
+                     <th style="width: 50px"></th>
+                     <th>标题</th>
+                     <th>作者</th>
+                     <th style="width: 200px">发表时间</th>
+                     <th style="width: 80px">状态</th>
+                     <th style="width: 300px">操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <#if blogs??>
+
+                    <#list blogs.list as blog>
+                        <tr>
+                            <td>${blog_index+1}</td>
+                            <td>${blog.title!}</td>
+                            <td>${blog.userName!"未知"}</td>
+                            <td>${blog.createTime!}</td>
+                            <td>
+                                <#if (blog.status)??>
+                                      <#if (blog.status) == 0>
+                                          <span class="label label-danger">待审核</span>
+                                      <#elseif (blog.status) == 1>
+                                          <span class="label label-success">审核通过</span>
+                                      <#elseif (blog.status) == -1>
+                                          <span class="label label-danger">审核失败</span>
+                                      </#if>
+                                </#if>
+                            </td>
+                            <td>
+                                <a href="javascript:void(0)" onclick="detail('${blog.id}')" class="btn btn-info btn-sm"><i class="glyphicon glyphicon-info-sign"></i> 详情</a>
+                                <a href="javascript:void(0)" onclick="edit('${blog.id}')" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-edit"></i> 编辑</a>
+                                <a id="del" onclick="del('${(blog.id)!}')"  class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-remove"></i> 删除</a>
+                            </td>
+                        </tr>
+
+                    </#list>
+                </#if>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    function del(id) {
+        layer.confirm(
+                "确定删除吗？",
+                {
+                    icon: 3,
+                    title: '系统提示'
+                },
+                function (index) {
+                    var loadIndex = 0;
+                    $.ajax({
+                        url: "${base}/admin/blog/del",
+                        type: "post",
+                        data: {"blogId": id},
+                        beforeSend: function(){
+                            layer.close(index);
+                            loadIndex = layer.load();
+                        },
+                        success: function (res) {
+                            layer.close(loadIndex);
+
+                            if (res.success) {
+                                layer.alert("删除成功", function(index){
+                                    loadContent('${base}/admin/blog');
+                                    layer.close(index);
+                                });
+                            }else{
+                                layer.alert(res.errorMsg || "删除失败");
+                            }
+                        }
+                    })
+                }
+        );
+    }
+
+    function edit(id){
+        loadContent("${base}/admin/blog/editBlog?blogId=" + id);
+    }
+
+    function detail(id) {
+        loadContent("${base}/admin/blog/detail?blogId=" + id);
+    }
+
+    $(function () {
+        $("#add").on("click", function () {
+            loadContent("${base}/admin/blog/addBlog");
+        });
+
+
+
+
+    })
+</script>

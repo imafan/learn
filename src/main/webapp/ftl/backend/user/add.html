@@ -1,0 +1,59 @@
+<ol class="breadcrumb">
+    <li><a href="javascript:void(0)" onclick="loadContent('${base}/admin/blog')"><i
+            class="glyphicon glyphicon-home"></i>帖子管理</a></li>
+    <li><a href="javascript:void(0)"></i>新增帖子</a></li>
+</ol>
+
+
+<div class="inner-container">
+    <div class="row">
+        <form id="addBlogForm" class="form-horizontal" onsubmit="submitBlog();return false;">
+            <div class="form-group">
+                <label for="inputTitle" class="col-sm-2 control-label">标题</label>
+
+                <div class="col-sm-4">
+                    <input type="text" id="inputTitle" name="blog.title"  class="form-control"  placeholder="标题">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="content" class="col-sm-2 control-label">内容</label>
+
+                <div class="col-sm-10">
+                    <textarea id="content" name="blog.content" class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">确定</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="/assets/ckeditor/ckeditor.js" type="text/javascript"></script>
+<script>
+
+//    var editor = CKEDITOR.replace('blog.content');
+    function submitBlog(){
+
+        $.ajax({
+            url : "${base}/admin/blog/add",
+            type: "post",
+            data: $("#addBlogForm").serialize(),
+            success: function(res){
+                if(res.success){
+                    layer.alert("添加成功",{icon:1,title:"系统提示"},function(index){
+                        loadContent("${base}/admin/blog");
+                        layer.close(index);
+                    })
+
+                }else{
+                    layer.alert("添加失败",{icon:5,title:"系统提示"});
+                }
+            }
+        })
+    }
+</script>
