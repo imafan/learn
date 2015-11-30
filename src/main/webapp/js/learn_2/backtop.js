@@ -9,7 +9,7 @@ define(["jquery","learn_2/scrollto"],function($,scrollto){
         this.scroll = new scrollto.ScrollTo({
             dest: 0,
             speed: 800
-        })
+        });
         this._checkPosition();
         if(this.opts.mode == "move"){
             this.$el.on("click", $.proxy(this._move,this));
@@ -17,7 +17,7 @@ define(["jquery","learn_2/scrollto"],function($,scrollto){
             this.$el.on("click", $.proxy(this._go,this));
         }
 
-        $(window).on("click", $.proxy(this._checkPosition,this));
+        $(window).on("scroll", $.proxy(this._checkPosition,this));
     }
     BackTop.DEAFULTS = {
         mode : "move" ,
@@ -34,9 +34,9 @@ define(["jquery","learn_2/scrollto"],function($,scrollto){
         var $el = this.$el;
         if($(window).scrollTop() > this.opts.pos){
            $el.fadeIn();
-       }else{
+        }else{
            $el.fadeOut();
-       }
+        }
     }
 
     return {
