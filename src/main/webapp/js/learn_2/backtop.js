@@ -39,6 +39,15 @@ define(["jquery","learn_2/scrollto"],function($,scrollto){
         }
     }
 
+    //注册成为jq插件
+    $.fn.extend({
+        backtop: function(opts){
+            return this.each(function(){
+                new BackTop(this, opts);
+            })
+        }
+    });
+
     return {
         BackTop :   BackTop
     }

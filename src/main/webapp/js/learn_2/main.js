@@ -10,26 +10,15 @@ requirejs.config({
 }) ;
 
 requirejs(["jquery","learn_2/backtop"],function($,backtop){
-    /*var scroll = new scrollto.ScrollTo({
-        speed: 2000
-    });
 
-    $("#backTop").on("click", $.proxy(scroll.move,scroll));*/
-
-    new backtop.BackTop($("#backTop"),{
+    /*new backtop.BackTop($("#backTop"),{
         mode : "move",
         speed: 3000
-    })  ;
+    })  ;*/
 
-    /*$(window).on("scroll",function(){
-        checkPosition($(window).height());
-    })
-     checkPosition($(window).height());
-    function checkPosition(pos){
-        if( $(window).scrollTop() > pos){
-            $("#backTop").fadeIn();
-        }else{
-            $("#backTop").fadeOut();
-        }
-    }*/
+     $("#backTop").backtop({
+         mode : "move",
+         speed: 800
+     })
+
 });
