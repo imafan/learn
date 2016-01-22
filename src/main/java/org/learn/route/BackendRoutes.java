@@ -2,6 +2,7 @@ package org.learn.route;
 
 import com.jfinal.config.Routes;
 import org.learn.blog.BlogController;
+import org.learn.controller.CkeditorController;
 import org.learn.controller.IndexBackendController;
 import org.learn.user.UserController;
 import org.learn.util.Constants;
@@ -16,5 +17,7 @@ public class BackendRoutes extends Routes{
         add("/admin", IndexBackendController.class , Constants.BACKEND_PATH);
         add("/admin/user", UserController.class , Constants.BACKEND_PATH);
         add("/admin/blog", BlogController.class , Constants.BACKEND_PATH);
+
+        add("/ckeditor", CkeditorController.class);
     }
 }

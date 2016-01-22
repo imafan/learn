@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.jfinal.aop.Before;
 import com.jfinal.aop.Clear;
 import com.jfinal.core.Controller;
+import com.jfinal.upload.UploadFile;
 import org.learn.user.LoginValidator;
 import org.learn.user.User;
 import org.learn.util.Constants;
@@ -44,4 +45,6 @@ public class IndexBackendController extends Controller {
         setSessionAttr(Constants.SESSION_LOGIN_USER,null);
         redirect("/admin/login");
     }
+
+
 }

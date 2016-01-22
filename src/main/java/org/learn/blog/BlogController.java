@@ -1,6 +1,7 @@
 package org.learn.blog;
 
 import com.jfinal.plugin.activerecord.Page;
+import com.jfinal.upload.UploadFile;
 import org.learn.base.BaseController;
 import org.learn.user.User;
 import org.learn.util.Constants;
@@ -84,4 +85,6 @@ public class BlogController extends BaseController {
 
         renderJson();
     }
+
+
 }

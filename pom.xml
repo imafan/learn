@@ -49,6 +49,12 @@
         </dependency>
 
         <dependency>
+            <groupId>com.jfinal</groupId>
+            <artifactId>cos</artifactId>
+            <version>26Dec2008</version>
+        </dependency>
+
+        <dependency>
             <groupId>cn.dreampie</groupId>
             <artifactId>jfinal-tablebind</artifactId>
             <version>0.1</version>

@@ -26,7 +26,7 @@
 
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default">确定</button>
+                    <button type="submit" class="btn btn-primary">确定</button>
                 </div>
             </div>
         </form>
@@ -37,6 +37,23 @@
 <script>
 
 //    var editor = CKEDITOR.replace('blog.content');
+    var editor = CKEDITOR.replace('blog.content', {
+        "filebrowserUploadUrl" :  "${base}/ckeditor/uploadImage",
+        "toolbar" : [
+            [ 'Source', '-', 'NewPage', 'Preview' ],
+            [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord',
+                '-', 'Scayt' ],
+            [ 'Undo', 'Redo', '-', 'Find', 'Replace', '-', 'SelectAll',
+                'RemoveFormat' ],
+            [ 'Image', 'HorizontalRule', 'Smiley', 'SpecialChar',
+                'PageBreak' ],
+            '/',
+            [ 'Styles', 'Format' ],
+            [ 'Bold', 'Italic', 'Strike' ],
+            [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent',
+                'Blockquote' ], [ 'Maximize', '-', 'About' ] ]
+    });
+
     function submitBlog(){
 
         $.ajax({
