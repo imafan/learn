@@ -7,4 +7,7 @@
 <!-- [if lt IE 9]>
 <script src="http://html5shim.goolecode.com/svn/trunk/html5.js"></script>
 <![endif] -->
+<script type="text/javascript">
+    var base = "${base!}";
+</script>
 <script src="/js/base.js" type="text/javascript"></script>

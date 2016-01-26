@@ -1,7 +1,9 @@
 package org.learn.interceptor;
 
+import com.alibaba.fastjson.JSONObject;
 import com.jfinal.aop.Interceptor;
 import com.jfinal.aop.Invocation;
+import com.jfinal.core.Controller;
 import org.apache.commons.lang.StringUtils;
 import org.learn.user.User;
 import org.learn.util.Constants;
@@ -19,12 +21,27 @@ public class AuthInterceptor implements Interceptor {
         HttpServletRequest request = invocation.getController().getRequest();
 
         String path = request.getServletPath();
+        boolean isAjax = false;
+
+        Controller controller = invocation.getController();
         if(StringUtils.isNotBlank(path) && path.startsWith("/admin")){
+
+            //判断是否ajax请求
+            String header = request.getHeader("X-Requested-With");
+            isAjax = "XMLHttpRequest".equalsIgnoreCase(header);
 
             HttpSession session = invocation.getController().getSession();
             User loginUser = (User)session.getAttribute(Constants.SESSION_LOGIN_USER);
             if(loginUser == null){
-                invocation.getController().redirect("/admin/login");
+                if(!isAjax){
+                    invocation.getController().redirect("/admin/login");
+                }else{
+                    JSONObject error = new JSONObject();
+                    error.put("success",false);
+                    error.put("codeMsg", "nologin");
+                    controller.renderJson(error);
+                }
+
                 return;
             }
         }
