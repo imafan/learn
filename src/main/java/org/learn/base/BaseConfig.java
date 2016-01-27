@@ -17,6 +17,7 @@ import com.jfinal.render.FreeMarkerRender;
 import freemarker.template.TemplateModelException;
 import org.learn.controller.HelloController;
 import org.learn.controller.LoginController;
+import org.learn.handler.AngularJSHandler;
 import org.learn.interceptor.AuthInterceptor;
 import org.learn.route.BackendRoutes;
 import org.learn.route.FrontRoutes;
@@ -87,7 +88,7 @@ public class BaseConfig extends JFinalConfig {
 
     public void configHandler(Handlers me) {
         me.add(new DruidStatViewHandler("/druid"));
-
+        me.add(new AngularJSHandler());
     }
 
     @Override

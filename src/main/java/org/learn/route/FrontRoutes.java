@@ -1,6 +1,7 @@
 package org.learn.route;
 
 import com.jfinal.config.Routes;
+import org.learn.controller.AngularJSController;
 import org.learn.controller.IndexController;
 import org.learn.controller.LoginController;
 import org.learn.user.UserController;
@@ -15,5 +16,7 @@ public class FrontRoutes extends Routes{
         add("/", IndexController.class);
         add("/user", UserController.class);
         add("/login", LoginController.class);
+
+//        add("/angular", AngularJSController.class);
     }
 }

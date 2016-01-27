@@ -34,7 +34,7 @@ public class AuthInterceptor implements Interceptor {
             User loginUser = (User)session.getAttribute(Constants.SESSION_LOGIN_USER);
             if(loginUser == null){
                 if(!isAjax){
-                    invocation.getController().redirect("/admin/login");
+                    controller.redirect("/admin/login");
                 }else{
                     JSONObject error = new JSONObject();
                     error.put("success",false);

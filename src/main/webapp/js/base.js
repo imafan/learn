@@ -22,32 +22,11 @@ $(function(){
         $(this).append("<span class='selected'></span>");
     })
 
-    $("body").bind("ajaxSuccess", function (e, jqXHR, s, res) {
-        console.info("e",e);
-        console.info("jqXHR",jqXHR);
-        console.info("s",s);
-        console.info("res",res);
-        if(res && res.result && res.result.code && res.result.code == "C002_MNG_0005"){
-            window.location.href = base + '/admin/logout';
-        }
-    });
-})
-
-
-function loadContent(url, fn){
-
-    //$.ajax({
-    //    url: url,
-    //    type: "get",
-    //    success: function(res){
-    //
-    //    }
-    //})
-    $("#content").load(url,function(res){
-        console.info("res",res);
-        if(typeof res == "string"){
+    $(document).ajaxSuccess(function(event, xhr, settings) {
+        var content = xhr.responseText;
+        if(content){
             try{
-                var resObj = $.parseJSON(res);
+                var resObj = $.parseJSON(content);
                 if(!resObj.success && resObj.codeMsg === "nologin"){
                     window.location.href = base + '/admin/logout';
                 }
@@ -55,7 +34,13 @@ function loadContent(url, fn){
 
             }
         }
+    });
+})
 
+
+function loadContent(url, fn){
+
+    $("#content").load(url,function(res){
         if(fn && typeof fn == "function"){
             fn.call(this,arguments);
         }

@@ -22,14 +22,14 @@ public class UserController extends BaseController {
     @Before(CacheInterceptor.class)
 //    @CacheName("userList")
     public void index() {
-//        List<User> userList = userService.findAll();
+        List<User> userList = userService.findAll();
 //        List<User> userList = User.dao.find("select * from user");
 
-        List<User> userList = CacheKit.get("userCache", "userList", new IDataLoader() {
-            public Object load() {
-                return userService.findAll();
-            }
-        });
+//        List<User> userList = CacheKit.get("userCache", "userList", new IDataLoader() {
+//            public Object load() {
+//                return userService.findAll();
+//            }
+//        });
         setAttr("users", userList);
         renderFront("/user/list.html");
     }
