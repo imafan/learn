@@ -14,7 +14,7 @@ public class AngularJSHandler extends Handler {
 
     @Override
     public void handle(String target, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, boolean[] booleans) {
-        if (target.startsWith("/angular")) {
+        if (target.startsWith("/angular") || target.startsWith("/app")) {
             RenderFactory.me().getFreeMarkerRender(target).setContext(httpServletRequest, httpServletResponse).render();
             booleans[0] = true;
         }else{
